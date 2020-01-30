@@ -29,7 +29,7 @@ class Mercury
     voltage = hex_to_int(response_body[5..6]).to_f/10 
     amperage = hex_to_int(response_body[7..8]).to_f/100
     electric_power = hex_to_int(response_body[9..11])
-    {status: 'OK', data: {u:voltage, i:amperage, p: electric_power}}
+    {status: 'OK', data: {voltage:voltage, amperage:amperage, power: electric_power}}
   end
 
   def enable_consumer
@@ -54,7 +54,7 @@ private
 
   def form_cmd_and_send(buf)
     cmd = int_to_bytes(@address) + buf
-    cmd = cmd + int_to_bytes(crc16(cmd))
+    cmd = cmd + short_to_bytes(crc16(cmd))
     response = @io_dev.send(cmd)
     return response if response[:status] != 'OK'
     response_body = response[:body]
@@ -77,7 +77,11 @@ private
   end
 
   def int_to_bytes(int)
-    int.digits(256).reverse.pack('C*')
+    [int].pack('N')
+  end
+
+  def short_to_bytes(short)
+    [short].pack('n')
   end
 
   def bytes_to_short(bytes)
