@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_01_30_185247) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "meter_moment_measures", force: :cascade do |t|
     t.float "voltage"
     t.float "amperage"

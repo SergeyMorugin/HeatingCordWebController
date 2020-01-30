@@ -19,6 +19,6 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 10.seconds do
+every 1.minutes do
   rake "meter:get_moment_measure"
 end
