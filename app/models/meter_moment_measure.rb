@@ -1,0 +1,2 @@
+class MeterMomentMeasure < ApplicationRecord
+end

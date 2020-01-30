@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Voltage:</strong>
+  <%= @meter_moment_measure.voltage %>
+</p>
+
+<p>
+  <strong>Amperage:</strong>
+  <%= @meter_moment_measure.amperage %>
+</p>
+
+<p>
+  <strong>Power:</strong>
+  <%= @meter_moment_measure.power %>
+</p>
+
+<%= link_to 'Edit', edit_meter_moment_measure_path(@meter_moment_measure) %> |
+<%= link_to 'Back', meter_moment_measures_path %>

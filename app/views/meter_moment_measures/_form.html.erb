@@ -1,0 +1,32 @@
+<%= form_with(model: meter_moment_measure, local: true) do |form| %>
+  <% if meter_moment_measure.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meter_moment_measure.errors.count, "error") %> prohibited this meter_moment_measure from being saved:</h2>
+
+      <ul>
+      <% meter_moment_measure.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :voltage %>
+    <%= form.text_field :voltage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amperage %>
+    <%= form.text_field :amperage %>
+  </div>
+
+  <div class="field">
+    <%= form.label :power %>
+    <%= form.text_field :power %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
