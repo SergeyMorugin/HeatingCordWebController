@@ -1,0 +1,5 @@
+namespace :meter do
+  task :get_moment_measure => :environment do
+
+  end
+end
