@@ -2,6 +2,7 @@ class HeatingCordsController < ApplicationController
   def index
   	@heating_cord = HeatingCord.first
   	@last_moment_measure = MeterMomentMeasure.order('created_at desc').first
+  	@last_wheather_measure = WeatherMeasure.order('created_at desc').first
   end
 
   def update_mode

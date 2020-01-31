@@ -5,7 +5,7 @@ class ArduinoWeatherProvider
     @address = address
   end
 
-  def get_measure
+  def get_wheather
     response = @io_dev.get_data
     return response if response[:status] != 'OK'
     begin

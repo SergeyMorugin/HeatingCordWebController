@@ -3,14 +3,27 @@
 <h1>Heating cord</h1>
 <br><br>
 <div class='meter_moment_measure'>
+  <h2>Electricity</h2>
   <% if @last_moment_measure %>
    <h2><%= "P=#{@last_moment_measure.power} I=#{@last_moment_measure.amperage} V=#{@last_moment_measure.voltage}"%> at <%=@last_moment_measure.created_at%> </h2>
-   <%= link_to "Moment measures", MeterMomentMeasure %>
+   <%= link_to "Moment electricity measures", MeterMomentMeasure %>
   <% else %>
     <h2> There is no measurement </h2>
   <% end %>
 
 </div>
+
+<div class='meter_moment_measure'>
+  <h2>Weater</h2>
+  <% if @last_wheather_measure %>
+   <h2><%= "#{@last_wheather_measure.temperature}*C #{@last_wheather_measure.pressure}mm #{@last_wheather_measure.humidity}% #{@last_wheather_measure.rainfall}"%> at <%=@last_wheather_measure.created_at%> </h2>
+   <%= link_to "Weather measures", WeatherMeasure %>
+  <% else %>
+    <h2> There is no measurement </h2>
+  <% end %>
+
+</div>
+
 <br><br>
 
 <div class="heating_cord_mode">
