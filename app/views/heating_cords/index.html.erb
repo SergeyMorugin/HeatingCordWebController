@@ -5,10 +5,11 @@
 <div class='meter_moment_measure'>
   <% if @last_moment_measure %>
    <h2><%= "P=#{@last_moment_measure.power} I=#{@last_moment_measure.amperage} V=#{@last_moment_measure.voltage}"%> at <%=@last_moment_measure.created_at%> </h2>
-
+   <%= link_to "Moment measures", MeterMomentMeasure %>
   <% else %>
     <h2> There is no measurement </h2>
   <% end %>
+
 </div>
 <br><br>
 

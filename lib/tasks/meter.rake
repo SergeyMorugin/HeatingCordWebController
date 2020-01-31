@@ -15,6 +15,7 @@ namespace :meter do
   end
 
   task :switch_every_hour => :environment do 
+  	next if HeatingCord.first.mode != HeatingCord::HEATIN_CORD_AUTOMATIC_MODE
   	gateway = Eth485Gateway.new(ENV['ETH485_GATEWAY_IP'], ENV['ETH485_GATEWAY_PORT'].to_i)
     meter = Mercury.new(gateway, ENV['METER_ADDRESS'].to_i)
         
