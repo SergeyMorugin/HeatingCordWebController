@@ -1,0 +1,2 @@
+class HeatingCordsController < ApplicationController
+end
