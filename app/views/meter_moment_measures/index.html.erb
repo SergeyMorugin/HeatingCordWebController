@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Date</th>
       <th>Voltage</th>
       <th>Amperage</th>
       <th>Power</th>
@@ -15,11 +16,12 @@
   <tbody>
     <% @meter_moment_measures.each do |meter_moment_measure| %>
       <tr>
+        <td><%= meter_moment_measure.created_at%></td>
         <td><%= meter_moment_measure.voltage %></td>
         <td><%= meter_moment_measure.amperage %></td>
         <td><%= meter_moment_measure.power %></td>
-        <td><%= link_to 'Show', meter_moment_measure %></td>
-        <td><%= link_to 'Edit', edit_meter_moment_measure_path(meter_moment_measure) %></td>
+        <!--<td><%= link_to 'Show', meter_moment_measure %></td>
+        <td><%= link_to 'Edit', edit_meter_moment_measure_path(meter_moment_measure) %></td>-->
         <td><%= link_to 'Destroy', meter_moment_measure, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
