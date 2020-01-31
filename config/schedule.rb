@@ -22,3 +22,7 @@
 every 1.minutes do
   rake "meter:get_moment_measure"
 end
+
+every 1.hour do
+  rake "meter:switch_every_hour"
+end
