@@ -5,3 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+HeatingCord.create!(mode: HeatingCord::HEATIN_CORD_OFF_MODE) if HeatingCord.all.count == 0

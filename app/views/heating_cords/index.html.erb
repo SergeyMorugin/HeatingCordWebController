@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Heating cord</h1>
+<br><br>
+<div class='meter_moment_measure'>
+  <% if @last_moment_measure %>
+   <h2><%= "P=#{@last_moment_measure.power} I=#{@last_moment_measure.amperage} V=#{@last_moment_measure.voltage}"%> at <%=@last_moment_measure.created_at%> </h2>
+
+  <% else %>
+    <h2> There is no measurement </h2>
+  <% end %>
+</div>
+<br><br>
+
+<div class="heating_cord_mode">
+  <h2>
+  MODE: <%= @heating_cord.print_mode %>
+  </h2>	
+  <br>
+  <%= link_to "AUTOMATIC", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_AUTOMATIC_MODE), method: :put %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "MANUAL ON MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_MANUAL_ON_MODE), method: :put %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "OFF MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_OFF_MODE), method: :put %>
+</div>
