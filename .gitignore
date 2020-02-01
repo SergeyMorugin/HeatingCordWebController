@@ -31,3 +31,4 @@
 
 .env
 /config/database.yml
+/config/deploy/*

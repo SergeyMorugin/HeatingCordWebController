@@ -18,7 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :environment, "development"
+#set :environment, "development"
 
 every 1.minutes do
   rake "meter:get_moment_measure"
