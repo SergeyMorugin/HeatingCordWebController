@@ -12,8 +12,8 @@
   <% end %>
 
 </div>
-
-<div class='meter_moment_measure'>
+<br>
+<div class='weather_measure'>
   <h2>Weater</h2>
   <% if @last_wheather_measure %>
    <h2><%= "#{@last_wheather_measure.temperature}*C #{@last_wheather_measure.pressure}mm #{@last_wheather_measure.humidity}% #{@last_wheather_measure.rainfall}"%> at <%=@last_wheather_measure.created_at%> </h2>
@@ -31,7 +31,38 @@
   MODE: <%= @heating_cord.print_mode %>
   </h2>	
   <br>
-  <%= link_to "AUTOMATIC", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_AUTOMATIC_MODE), method: :put %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <%= link_to "MANUAL ON MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_MANUAL_ON_MODE), method: :put %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <%= link_to "OFF MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_OFF_MODE), method: :put %>
+  <%= link_to "AUTOMATIC", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_AUTOMATIC_MODE), method: :put, class:'btn' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "MANUAL ON MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_MANUAL_ON_MODE), method: :put, class:'btn' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "OFF MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_OFF_MODE), method: :put, class:'btn' %>
 </div>
+
+<style>
+  .btn {
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    text-decoration: none;
+   
+  }
+  .btn:visited {
+    color: #fff;
+  }
+</style>
