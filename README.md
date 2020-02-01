@@ -1,24 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Smart controller for heatin cords.
 
-Things you may want to cover:
+Controller obtains weather information from arduino and electricity consumption from a meter Mercury 206. Also the kind of meters are used for switch off/on cords due to the built-in relay.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
