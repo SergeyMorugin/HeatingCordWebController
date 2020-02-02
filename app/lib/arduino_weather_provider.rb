@@ -12,7 +12,7 @@ class ArduinoWeatherProvider
     unless (response[:body].include?('[') and
         response[:body].include?('|') and
         response[:body].include?(']'))
-      return {status: 'Error', error_message: 'Unknown format', body: response[:body]} 
+      #return {status: 'Error', error_message: 'Unknown format', body: response[:body]} 
     end 
 
     begin
