@@ -4,7 +4,7 @@ class WeatherMeasuresController < ApplicationController
   # GET /weather_measures
   # GET /weather_measures.json
   def index
-    @weather_measures = WeatherMeasure.all.order('created_at desc')
+    @weather_measures = WeatherMeasure.all.order('created_at desc').limit(2880)
   end
 
   # GET /weather_measures/1

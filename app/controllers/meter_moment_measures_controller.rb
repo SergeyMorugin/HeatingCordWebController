@@ -4,7 +4,7 @@ class MeterMomentMeasuresController < ApplicationController
   # GET /meter_moment_measures
   # GET /meter_moment_measures.json
   def index
-    @meter_moment_measures = MeterMomentMeasure.all.order('created_at desc')
+    @meter_moment_measures = MeterMomentMeasure.all.order('created_at desc').limit(2880)
   end
 
   # GET /meter_moment_measures/1
