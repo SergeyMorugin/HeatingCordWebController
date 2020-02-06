@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Meter Moment Measures</h1>
-
+<h2><%= "#{@meter_moment_measures.count}/#{@all_records_count} offset #{@offset}" %></h2>
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Date Time</th>
       <th>Voltage</th>
       <th>Amperage</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @meter_moment_measures.each do |meter_moment_measure| %>
       <tr>
+        <td><%= meter_moment_measure.id%></td>
         <td><%= meter_moment_measure.created_at%></td>
         <td><%= meter_moment_measure.voltage %></td>
         <td><%= meter_moment_measure.amperage %></td>

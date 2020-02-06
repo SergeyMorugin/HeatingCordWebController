@@ -1,10 +1,13 @@
 class MeterMomentMeasuresController < ApplicationController
   before_action :set_meter_moment_measure, only: [:show, :edit, :update, :destroy]
-
+  DEFAULT_MAX_RECORDS = 2880
   # GET /meter_moment_measures
   # GET /meter_moment_measures.json
   def index
-    @meter_moment_measures = MeterMomentMeasure.all.order('created_at desc').limit(2880)
+    @limit = params[:limit] || DEFAULT_MAX_RECORDS
+    @offset = params[:offset] || 0
+    @meter_moment_measures = MeterMomentMeasure.all.order('created_at desc').limit(@limit).offset(@offset)
+    @all_records_count = MeterMomentMeasure.all.count
   end
 
   # GET /meter_moment_measures/1

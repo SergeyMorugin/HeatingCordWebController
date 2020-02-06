@@ -1,10 +1,13 @@
 class WeatherMeasuresController < ApplicationController
   before_action :set_weather_measure, only: [:show, :edit, :update, :destroy]
-
+  DEFAULT_MAX_RECORDS = 2880
   # GET /weather_measures
   # GET /weather_measures.json
   def index
-    @weather_measures = WeatherMeasure.all.order('created_at desc').limit(2880)
+    @limit = params[:limit] || DEFAULT_MAX_RECORDS
+    @offset = params[:offset] || 0
+    @weather_measures = WeatherMeasure.all.order('created_at desc').limit(@limit).offset(@offset)
+    @all_records_count = WeatherMeasure.all.count
   end
 
   # GET /weather_measures/1

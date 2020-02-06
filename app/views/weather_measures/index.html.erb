@@ -1,10 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Weather Measures</h1>
-
+<h2><%= "#{@weather_measures.count}/#{@all_records_count} offset #{@offset}" %></h2>
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Date Time</th>
       <th>Temperature</th>
       <th>Pressure</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @weather_measures.each do |weather_measure| %>
       <tr>
+        <td><%= weather_measure.id %></td>
         <td><%= "#{weather_measure.created_at}" %></td>
         <td><%= "#{weather_measure.temperature} *C" %></td>
         <td><%= "#{weather_measure.pressure} mm" %></td>
