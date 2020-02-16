@@ -7,9 +7,10 @@ class HeatingCordsController < ApplicationController
     #@data['t'] = {}
 
     weather_values = WeatherMeasure.order('created_at desc').limit(1440)
-    @data_max = weather_values.maximum(:temperature)
-    @data_min = weather_values.minimum(:temperature)
-    weather_values .map{|d| @data[d.created_at] = d.temperature }
+    
+    weather_values.map{|d| @data[d.created_at] = d.temperature }
+    @data_max = @data.values.max
+    @data_min = @data.values.min
   end
 
   def update_mode
