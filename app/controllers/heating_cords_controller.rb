@@ -3,6 +3,13 @@ class HeatingCordsController < ApplicationController
   	@heating_cord = HeatingCord.first
   	@last_moment_measure = MeterMomentMeasure.order('created_at desc').first
   	@last_wheather_measure = WeatherMeasure.order('created_at desc').first
+    @data = {} 
+    #@data['t'] = {}
+
+    weather_values = WeatherMeasure.order('created_at desc').limit(1440)
+    @data_max = weather_values.maximum(:temperature)
+    @data_min = weather_values.minimum(:temperature)
+    weather_values .map{|d| @data[d.created_at] = d.temperature }
   end
 
   def update_mode

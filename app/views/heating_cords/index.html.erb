@@ -1,7 +1,8 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Heating cord</h1>
-<br><br>
+<p id="notice"><%= notice %></p>
+<%= line_chart @data, height: '500px', label: 'Chart',min: @data_min, max: @data_max %>
+
+
 <div class='meter_moment_measure'>
   <h2>Electricity</h2>
   <% if @last_moment_measure %>
