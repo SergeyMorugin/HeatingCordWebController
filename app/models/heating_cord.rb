@@ -7,16 +7,17 @@ class HeatingCord < ApplicationRecord
   	return if new_mode == mode
   	gateway = Eth485Gateway.new(ENV['ETH485_GATEWAY_IP'], ENV['ETH485_GATEWAY_PORT'].to_i)
     meter = Mercury.new(gateway, ENV['METER_ADDRESS'].to_i)
-
+    result = {}
   	case new_mode
   	  when HEATIN_CORD_OFF_MODE then
-  	  	meter.disable_consumer
+  	  	result = meter.disable_consumer
   	  when HEATIN_CORD_MANUAL_ON_MODE then
-        meter.enable_consumer
+        result = meter.enable_consumer
   	  when HEATIN_CORD_AUTOMATIC_MODE then
   	    #puts meter.enable_consumer 
   	end
     update!(mode: new_mode)
+    result
   end
 
   def print_mode

@@ -7,10 +7,10 @@ class HeatingCordsController < ApplicationController
 
   def update_mode
   	heating_cord = HeatingCord.first
-    heating_cord.update_mode(params['mode'].to_i)
+    result = heating_cord.update_mode(params['mode'].to_i)
   	respond_to do |format|      
-      format.html { redirect_to '/heating_cords/index', notice: 'HeatingCord mode was successfully updated.' }
-      format.json { render :index, status: :ok }      
+      format.html { redirect_to '/heating_cords/index', notice: "HeatingCord mode updated. #{result}" }
+      format.json { render :index, status: :ok, result: result}      
     end
 
   end
