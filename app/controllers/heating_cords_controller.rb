@@ -3,14 +3,26 @@ class HeatingCordsController < ApplicationController
   	@heating_cord = HeatingCord.first
   	@last_moment_measure = MeterMomentMeasure.order('created_at desc').first
   	@last_wheather_measure = WeatherMeasure.order('created_at desc').first
-    @data = {} 
+    @data = [] 
     #@data['t'] = {}
+    end_range = Time.now
+    start_range = end_range- 1.day
+    finish = Time
+    weather_values = WeatherMeasure.where('created_at > ?',start_range).order('created_at asc')
+    @weather = {}#{name: 'Temperature', data: {}} 
+    weather_values.map{|d| @weather[d.created_at] = d.temperature }
+    @weather[start_range-1.minute] = 0
+    @weather[end_range+1.minute] = 0
+    #weather[:max] = weather[:data].values.max
+    #weather[:min] = weather[:data].values.min
 
-    weather_values = WeatherMeasure.order('created_at desc').limit(1440)
+    electricity_values = MeterMomentMeasure.where('created_at > ?',start_range).order('created_at asc')
+    @power = {}#{name: 'ElPower', data: {}} 
+    electricity_values.map{|d| @power[d.created_at] = d.power }
+    @power[start_range-1.minute] = 0
+    @power[end_range+1.minute] = 0
+
     
-    weather_values.map{|d| @data[d.created_at] = d.temperature }
-    @data_max = @data.values.max
-    @data_min = @data.values.min
   end
 
   def update_mode

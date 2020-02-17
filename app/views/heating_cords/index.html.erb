@@ -1,7 +1,7 @@
 <h1>Heating cord</h1>
 <p id="notice"><%= notice %></p>
-<%= line_chart @data, height: '500px', label: 'Chart',min: @data_min, max: @data_max %>
-<%= "#{@data_min} #{@data_max}"%>
+
+
 
 <div class='meter_moment_measure'>
   <h2>Electricity</h2>
@@ -36,6 +36,9 @@
   <%= link_to "MANUAL ON MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_MANUAL_ON_MODE), method: :put, class:'btn' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <%= link_to "OFF MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_OFF_MODE), method: :put, class:'btn' %>
 </div>
+<br>
+<%= line_chart @weather, height: '400px', label: 'Tempetature',min: @weather.values.min, max: @weather.values.max %>
+<%= line_chart @power, height: '400px', label: 'Power',min: @power.values.min, max: @power.values.max, curve: false  %>
 
 <style>
   .btn {
