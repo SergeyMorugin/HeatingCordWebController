@@ -32,7 +32,7 @@
   MODE: <%= @heating_cord.print_mode %>
   </h2>	
   <br>
-  <%= link_to "AUTO 1 ON/OFF HOUR MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_AUTOMATIC_MODE), method: :put, class:'btn' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "AUTO 1 ON/OFF HOUR MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_AUTOMATIC_1H_SWITCH_MODE), method: :put, class:'btn' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <%= link_to "MANUAL ON MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_MANUAL_ON_MODE), method: :put, class:'btn' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <%= link_to "OFF MODE", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_OFF_MODE), method: :put, class:'btn' %>
 </div>
