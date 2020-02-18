@@ -1,4 +1,4 @@
-load 'crc16.rb'
+#load 'crc16.rb'
 
 class Mercury
   include Crc16

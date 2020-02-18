@@ -1,7 +1,8 @@
 class HeatingCord < ApplicationRecord
   HEATIN_CORD_OFF_MODE = 0
   HEATIN_CORD_MANUAL_ON_MODE = 1
-  HEATIN_CORD_AUTOMATIC_MODE = 10
+  HEATIN_CORD_AUTOMATIC_MODE = 10 #switching every hour to on or off
+
 
   def update_mode(new_mode)  	
   	return if new_mode == mode
