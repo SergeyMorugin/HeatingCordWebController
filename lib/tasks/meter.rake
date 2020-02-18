@@ -31,13 +31,13 @@ namespace :meter do
         meter.disable_consumer
       else
         meter.enable_consumer
-      end 
-
+      end
     end
 
     if HeatingCord.first.mode == HeatingCord::HeatingCord::HEATIN_CORD_AUTOMATIC_1H_PER_DAY_MODE
       if Time.now.hour == 13
         meter.enable_consumer
+      end  
       if Time.now.hour == 14
         meter.disable_consumer
       end
