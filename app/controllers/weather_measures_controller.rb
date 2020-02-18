@@ -7,6 +7,7 @@ class WeatherMeasuresController < ApplicationController
     @limit = params[:limit] || DEFAULT_MAX_RECORDS
     @offset = params[:offset] || 0
     @weather_measures = WeatherMeasure.all.order('created_at desc').limit(@limit).offset(@offset)
+    @temperature_chart_data = @weather_measures.pluck(:created_at, :temperature).to_h 
     @all_records_count = WeatherMeasure.all.count
   end
 

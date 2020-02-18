@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Weather Measures</h1>
+
 <h2><%= "#{@weather_measures.count}/#{@all_records_count} offset #{@offset}" %></h2>
+<%= line_chart @temperature_chart_data, height: '400px', label: 'Temperature',min: @temperature_chart_data.values.min, max: @temperature_chart_data.values.max %>
 <table>
   <thead>
     <tr>
