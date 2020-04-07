@@ -6,7 +6,7 @@ class HeatingCord < ApplicationRecord
 
 
   def update_mode(new_mode)  	
-  	return if new_mode == mode
+  	#return if new_mode == mode
   	gateway = Eth485Gateway.new(ENV['ETH485_GATEWAY_IP'], ENV['ETH485_GATEWAY_PORT'].to_i)
     meter = Mercury.new(gateway, ENV['METER_ADDRESS'].to_i)
     result = {}

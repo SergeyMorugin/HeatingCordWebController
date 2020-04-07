@@ -55,7 +55,7 @@ private
   def form_cmd_and_send(buf)
     cmd = int_to_bytes(@address) + buf
     cmd = cmd + short_to_bytes(crc16(cmd))
-    response = @io_dev.send(cmd)
+    response = @io_dev.get_data(cmd)
     return response if response[:status] != 'OK'
     response_body = response[:body]
     return response.merge({status: 'Error', error_message: 'Wrong CRC' }) if !check_crc(response_body)
