@@ -32,10 +32,38 @@
   MODE: <%= @heating_cord.print_mode %>
   </h2>	
   <br>
-  <%= link_to "AUTO 1H PER DAY", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_AUTOMATIC_1H_PER_DAY_MODE), method: :put, class:'btn' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <%= link_to "AUTO 1 ON/OFF HOUR", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_AUTOMATIC_1H_SWITCH_MODE), method: :put, class:'btn' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <%= link_to "MANUAL ON", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_MANUAL_ON_MODE), method: :put, class:'btn' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <%= link_to "OFF", url_for(controller: 'heating_cords', action: 'update_mode',  mode: HeatingCord::HEATIN_CORD_OFF_MODE), method: :put, class:'btn' %>
+  <%= link_to "AUTO 1H PER DAY", 
+    url_for(controller: 'heating_cords', 
+            action: 'update_mode',  
+            mode: HeatingCord::HEATIN_CORD_AUTOMATIC_1H_PER_DAY_MODE), 
+    method: :put, 
+    class:'btn', 
+    id: 'btn_auto_1h_per_day' %>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "AUTO 1 ON/OFF HOUR", 
+    url_for(controller: 'heating_cords', 
+            action: 'update_mode',  
+            mode: HeatingCord::HEATIN_CORD_AUTOMATIC_1H_SWITCH_MODE), 
+    method: :put, 
+    class:'btn',
+    id: 'btn_auto_1h_switch_mode' %>
+
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "MANUAL ON", 
+    url_for(controller: 'heating_cords', 
+            action: 'update_mode',  
+            mode: HeatingCord::HEATIN_CORD_MANUAL_ON_MODE), 
+    method: :put, 
+    class: 'btn',
+    id: 'btn_manual_on'%>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "OFF", 
+    url_for(controller: 'heating_cords', 
+            action: 'update_mode',  
+            mode: HeatingCord::HEATIN_CORD_OFF_MODE), 
+    method: :put, 
+    class: 'btn',
+    id: 'btn_off'%>
 </div>
 <br>
 <%= line_chart @weather, height: '400px', label: 'Tempetature',min: @weather.values.min, max: @weather.values.max %>
