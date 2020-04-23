@@ -1,4 +1,3 @@
-#load 'crc16.rb'
 
 class Mercury
   include Crc16
@@ -73,7 +72,7 @@ private
   end
 
   def hex_to_int(hex)
-    hex.unpack('C*').map{|c| "%02X" % c}.join().to_i
+    hex.unpack('C*').map{|c| "%02X" % c}.join.to_i
   end
 
   def int_to_bytes(int)

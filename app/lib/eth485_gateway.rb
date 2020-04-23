@@ -10,9 +10,6 @@ class Eth485Gateway
   end
 
   def get_data(buf)    
-  	#d = [0x01, 0xD4, 0xC2, 0x10, 0x2F, 0xCD, 0xD0].pack('C*')
-  	#d2 = [0x01, 0xD4, 0xC2, 0x10, 0x63, 0xCC, 0x25].pack('C*')
-  	#s = TCPSocket.new('192.168.1.115', 2000)
     begin
       @socket = TCPSocket.new(@ip, @port)      
       #puts "OUT #{buf.unpack('C*').map{|c| "%02X" % c}.to_s}"
