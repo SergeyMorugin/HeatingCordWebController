@@ -16,7 +16,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+.idea
 # Ignore uploaded files in development
 /storage/*
 
@@ -32,3 +32,6 @@
 .env
 /config/database.yml
 /config/deploy/*
+
+/old_test
+.ruby-gemset

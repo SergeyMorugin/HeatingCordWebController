@@ -9,9 +9,9 @@ class ArduinoWeatherProvider
     response = @io_dev.get_data
     return response if response[:status] != 'OK'
 
-    unless (response[:body].include?('[') and
+    unless response[:body].include?('[') and
         response[:body].include?('|') and
-        response[:body].include?(']'))
+        response[:body].include?(']')
       #return {status: 'Error', error_message: 'Unknown format', body: response[:body]} 
     end 
 
