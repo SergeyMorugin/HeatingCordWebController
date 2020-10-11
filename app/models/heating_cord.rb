@@ -1,4 +1,5 @@
 class HeatingCord < ApplicationRecord
+  validates :mode, presence: true
   HEATIN_CORD_OFF_MODE = 0
   HEATIN_CORD_MANUAL_ON_MODE = 1
   HEATIN_CORD_AUTOMATIC_1H_SWITCH_MODE = 10 #switching every hour to on or off

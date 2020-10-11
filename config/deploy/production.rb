@@ -9,11 +9,12 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server '192.168.1.55', port: 22, roles: [:web, :app, :db], primary: true
+#server '192.168.1.55', port: 22, roles: [:web, :app, :db], primary: true
+server '192.168.1.110', port: 22, roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:SergeyMorugin/HeatingCordWebController.git'
 set :application,     'home-controller'
-set :user,            'deploy'
+set :user,            'pi'
 #set :puma_threads,    [4, 16]
 set :puma_workers,    0
 
