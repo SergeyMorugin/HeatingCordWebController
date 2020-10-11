@@ -24,11 +24,11 @@ every 1.hour do
   rake "heating_cord:every_hour_task"
 end
 
-every 1.minutes do
-  rake "meter:get_moment_measure"
-end
+#every 1.minutes do
+  #rake "meter:get_moment_measure"
+#end
 
 every 1.minutes do
-  rake "arduino:get_weather"
+  rake "bme280:get_weather"
 end
 
