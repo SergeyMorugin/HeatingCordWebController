@@ -12,13 +12,13 @@ class SerialportGateway
       serial_port = SerialPort.new(@serial_port, 9600, 8, 1, SerialPort::NONE) #do |serial_port |
         serial_port.flush_input
         serial_port.read_timeout = 1000
-        serial_port.write(request)
+        serial_port.write(request) if request.present?
         sleep 1
 
         #serial_port.readline(1000)
         #serial_port.flush_input
         #response = serial_port.readline("\r\n")
-        
+
         response = serial_port.readline(1000)
 
         puts "IN #{response}"
