@@ -10,7 +10,7 @@ namespace :heating_cord do
       sleep 1
       response = meter.test_connection
       #puts response
-    return if response[:status] != 'OK'
+    next if response[:status] != 'OK'
     
     if heating_cord.mode == HeatingCord::HEATIN_CORD_AUTOMATIC_1H_SWITCH_MODE
       if heating_cord.enable# response[:data][:amperage] > 0.1
