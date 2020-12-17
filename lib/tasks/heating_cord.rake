@@ -5,27 +5,31 @@ namespace :heating_cord do
     #gateway = Eth485Gateway.new(ENV['ETH485_GATEWAY_IP'], ENV['ETH485_GATEWAY_PORT'].to_i)
     gateway = SerialportGateway.new(ENV['SERIAL_PORT'])
     meter = Mercury.new(gateway, ENV['METER_ADDRESS'].to_i)
-        
-    begin
+    heating_cord = HeatingCord.first
+    #begin
       sleep 1
-      response = meter.get_UIP
+      response = meter.test_connection
       #puts response
-    end while response[:status] != 'OK'
+    return if response[:status] != 'OK'
     
-    if HeatingCord.first.mode == HeatingCord::HEATIN_CORD_AUTOMATIC_1H_SWITCH_MODE
-      if response[:data][:amperage] > 0.1
+    if heating_cord.mode == HeatingCord::HEATIN_CORD_AUTOMATIC_1H_SWITCH_MODE
+      if heating_cord.enable# response[:data][:amperage] > 0.1
         meter.disable_consumer
+        heating_cord.update(enable: false)
       else
         meter.enable_consumer
+        heating_cord.update(enable: true)
       end
     end
 
-    if HeatingCord.first.mode == HeatingCord::HEATIN_CORD_AUTOMATIC_1H_PER_DAY_MODE
-      if Time.now.hour == 13
+    if heating_cord.mode == HeatingCord::HEATIN_CORD_AUTOMATIC_1H_PER_DAY_MODE
+      if Time.now.hour == 6
         meter.enable_consumer
+        heating_cord.update(enable: true)
       end  
-      if Time.now.hour == 14
+      if Time.now.hour == 17
         meter.disable_consumer
+        heating_cord.update(enable: false)
       end
     end
   end

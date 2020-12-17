@@ -15,8 +15,10 @@ class HeatingCord < ApplicationRecord
   	case new_mode
   	  when HEATIN_CORD_OFF_MODE then
   	  	result = meter.disable_consumer
+        update!(enable: false)
   	  when HEATIN_CORD_MANUAL_ON_MODE then
         result = meter.enable_consumer
+        update!(enable: true)
   	  when HEATIN_CORD_AUTOMATIC_1H_SWITCH_MODE, HEATIN_CORD_AUTOMATIC_1H_PER_DAY_MODE then
   	    #puts meter.enable_consumer 
   	end
