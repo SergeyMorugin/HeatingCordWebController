@@ -7,15 +7,25 @@ class HeatingCordsController < ApplicationController
     end_range = Time.now
     start_range = end_range- 1.day
 
-    weather_values = WeatherMeasure.where('created_at > ?',start_range).order('created_at asc')
-    @weather = weather_values.pluck(:created_at, :temperature).to_h  
-    @weather[start_range-1.minute] = 0
-    @weather[end_range+1.minute] = 0
-
     electricity_values = MeterMomentMeasure.where('created_at > ?',start_range).order('created_at asc')
-    @power = electricity_values.pluck(:created_at, :power).to_h 
+    @power = electricity_values.pluck(:created_at, :power).to_h
     @power[start_range-1.minute] = 0
     @power[end_range+1.minute] = 0
+
+    weather_values = WeatherMeasure.where('created_at > ?',start_range).order('created_at asc')
+    @weather_t = weather_values.pluck(:created_at, :temperature).to_h
+    @weather_t[start_range-1.minute] = 0
+    @weather_t[end_range+1.minute] = 0
+
+    @weather_p = weather_values.pluck(:created_at, :pressure).to_h
+    @weather_p[start_range-1.minute] = 0
+    @weather_p[end_range+1.minute] = 0
+
+    @weather_h = weather_values.pluck(:created_at, :humidity).to_h
+    @weather_h[start_range-1.minute] = 0
+    @weather_h[end_range+1.minute] = 0
+
+
 
     
   end

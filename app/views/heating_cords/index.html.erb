@@ -66,8 +66,11 @@
     id: 'btn_off'%>
 </div>
 <br>
-<%= line_chart @weather, height: '400px', label: 'Tempetature',min: @weather.values.min, max: @weather.values.max %>
-<%= line_chart @power, height: '400px', label: 'Power',min: @power.values.min, max: @power.values.max, curve: false  %>
+<%= line_chart @power, height: '300px', label: 'Power',min: @power.values.min, max: @power.values.max, curve: false  %>
+<%= line_chart @weather_t, height: '400px', label: 'Tempetature',min: @weather_t.values.min, max: @weather_t.values.max %>
+<%= line_chart @weather_p, height: '400px', label: 'Pressure',min: @weather_p.values.min, max: @weather_p.values.max %>
+<%= line_chart @weather_h, height: '400px', label: 'Humidity',min: @weather_h.values.min, max: @weather_h.values.max %>
+
 
 <style>
   .btn {
