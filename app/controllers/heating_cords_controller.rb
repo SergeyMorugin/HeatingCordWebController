@@ -18,12 +18,12 @@ class HeatingCordsController < ApplicationController
     @weather_t[end_range+1.minute] = 0
 
     @weather_p = weather_values.pluck(:created_at, :pressure).to_h
-    @weather_p[start_range-1.minute] = 0
-    @weather_p[end_range+1.minute] = 0
+    #@weather_p[start_range-1.minute] = 0
+    #@weather_p[end_range+1.minute] = 0
 
     @weather_h = weather_values.pluck(:created_at, :humidity).to_h
-    @weather_h[start_range-1.minute] = 0
-    @weather_h[end_range+1.minute] = 0
+    #@weather_h[start_range-1.minute] = 0
+    #@weather_h[end_range+1.minute] = 0
 
 
 
