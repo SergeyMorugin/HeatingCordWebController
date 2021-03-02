@@ -1,0 +1,18 @@
+Debug Received MQTT message on 'zigbee2mqtt/bridge/request/device/remove' with data '{"block":false,"force":true,"id":"0x00158d000205d552","transaction":"8tgu7-1"}'
+Info Removing device '0x00158d000205d552' (block: false, force: true)
+Debug Clearing Home Assistant discovery topic for '0x00158d000205d552'
+Info MQTT publish: topic 'homeassistant/binary_sensor/0x00158d000205d552/carbon_monoxide/config', payload 'null'
+Info MQTT publish: topic 'homeassistant/binary_sensor/0x00158d000205d552/battery_low/config', payload 'null'
+Info MQTT publish: topic 'homeassistant/binary_sensor/0x00158d000205d552/tamper/config', payload 'null'
+Info MQTT publish: topic 'homeassistant/sensor/0x00158d000205d552/battery/config', payload 'null'
+Info MQTT publish: topic 'homeassistant/sensor/0x00158d000205d552/linkquality/config', payload 'null'
+Info MQTT publish: topic 'zigbee2mqtt/0x00158d000205d552', payload ''
+Info Successfully removed device '0x00158d000205d552' (block: false, force: true)
+Info MQTT publish: topic 'zigbee2mqtt/bridge/groups', payload '[]'
+Info MQTT publish: topic 'zigbee2mqtt/bridge/devices', payload '[{"definition":null,"endpoints":{"1":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"10":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"11":{"bindings":[],"clusters":{"input":["ssIasAce"],"output":["ssIasZone","ssIasWd"]},"configured_reportings":[]},"110":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"12":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"13":{"bindings":[],"clusters":{"input":["genOta"],"output":[]},"configured_reportings":[]},"2":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"242":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"3":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"4":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"47":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"5":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"6":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]},"8":{"bindings":[],"clusters":{"input":[],"output":[]},"configured_reportings":[]}},"friendly_name":"Coordinator","ieee_address":"0x00124b0014d9b30e","interview_completed":true,"interviewing":false,"network_address":0,"supported":false,"type":"Coordinator"}]'
+Info MQTT publish: topic 'zigbee2mqtt/bridge/response/device/remove', payload '{"data":{"block":false,"force":true,"id":"0x00158d000205d552"},"status":"ok","transaction":"8tgu7-1"}'
+Debug Received MQTT message on 'homeassistant/binary_sensor/0x00158d000205d552/carbon_monoxide/config' with data ''
+Debug Received MQTT message on 'homeassistant/binary_sensor/0x00158d000205d552/battery_low/config' with data ''
+Debug Received MQTT message on 'homeassistant/binary_sensor/0x00158d000205d552/tamper/config' with data ''
+Debug Received MQTT message on 'homeassistant/sensor/0x00158d000205d552/battery/config' with data ''
+Debug Received MQTT message on 'homeassistant/sensor/0x00158d000205d552/linkquality/config' with data ''

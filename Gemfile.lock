@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/njh/ruby-mqtt.git
+  revision: d1a9ad7093c7259f8b53c8a7287609c5501a8aa3
+  specs:
+    mqtt (0.5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -268,6 +274,7 @@ DEPENDENCIES
   i2c-bme280
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
+  mqtt!
   pg
   puma (~> 3.11)
   rails (~> 5.2.0)
@@ -289,4 +296,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   1.17.2
+   1.17.3
