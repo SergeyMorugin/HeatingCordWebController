@@ -26,12 +26,33 @@ class HomeAssistant
 
 
     # data
+    c.publish 'homeassistant/binary_sensor/0x00158d000205d552/linkquality2/config', null
     c.publish 'zigbee2mqtt/0x00158d000205d552', '{"battery":90,"battery_low":false,"carbon_monoxide":false,"linkquality":18,"tamper":false,"voltage":2900}'
 
 
 
   end
 
+  def test3
+    {
+        "availability":[{"topic":"zigbee2mqtt/bridge/state"}],
+        "device":{
+            "identifiers":["zigbee2mqtt_0x00158d000205d552"],
+            "manufacturer":"Feibit",
+            "model":"Smart carbon monoxide sensor (SCA01ZB)",
+            "name":"0x00158d000205d552",
+            "sw_version":"Zigbee2MQTT 1.17.1"
+        },
+        "icon":"mdi:signal",
+        "json_attributes_topic":"zigbee2mqtt/0x00158d000205d552",
+        "name":"0x00158d000205d552 linkquality",
+        "state_topic":"zigbee2mqtt/0x00158d000205d552",
+        "unique_id":"0x00158d000205d552_linkquality_zigbee2mqtt",
+        "unit_of_measurement":"lqi",
+        "value_template":"{{ value_json.linkquality }}"
+    }
+  end
+  
   def test2
     [
         {"definition":null,
