@@ -18,6 +18,10 @@ class MqttMercury
     mqtt_client.disconnect
   end
 
+  def publish_0_values
+    publish({voltage: 0, current: 0, power: 0})
+  end
+
 
 end
 

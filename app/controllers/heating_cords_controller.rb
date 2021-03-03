@@ -24,15 +24,16 @@ class HeatingCordsController < ApplicationController
     @weather_h = weather_values.pluck(:created_at, :humidity).to_h
     #@weather_h[start_range-1.minute] = 0
     #@weather_h[end_range+1.minute] = 0
-
-
-
-    
   end
 
   def update_mode
   	heating_cord = HeatingCord.first
     result = heating_cord.update_mode(params['mode'].to_i)
+
+    if params['mode'].to_i == HeatingCord::HEATIN_CORD_OFF_MODE &&
+        result['status'] = 'OK'
+      DevisesFactory.get_mercury.publish_0_values
+    end
   	respond_to do |format|      
       format.html { redirect_to '/heating_cords/index', notice: "HeatingCord mode updated. #{result}" }
       format.json { render :index, status: :ok, result: result}      

@@ -7,7 +7,7 @@ namespace :cron_task do
 
     WeatherMeasure.create!(response[:data])
 
-    mqtt = MqttBme280.new(DEVISES_CONF['mqtt'], DEVISES_CONF['bases'][0], DEVISES_CONF['bases'][0]['devises'][0])
+    mqtt = DevisesFactory.get_bme280
     mqtt.publish(response[:data])
 
 
@@ -27,7 +27,7 @@ namespace :cron_task do
     if response[:data][:amperage] > 0.1
       MeterMomentMeasure.create!(response[:data])
 
-      m = MqttMercury.new(DEVISES_CONF['mqtt'], DEVISES_CONF['bases'][0], DEVISES_CONF['bases'][0]['devises'][1])
+      m = DevisesFactory.get_mercury
       m.publish(response[:data])
     end
   end
