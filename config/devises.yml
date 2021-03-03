@@ -1,0 +1,31 @@
+mqtt:
+  address: '192.168.1.55'
+
+bases:
+  - id: 'raspberrypi2b'
+    devises:
+      - id: 'rasp2bBME280'
+        vendor: 'Bosch'
+        model: 'Senser BME280'
+        parameters:
+          - name: 'temperature'
+            description: 'Temperature in ºC'
+            type: 'numeratic'
+            unit: 'ºC'
+            value_max: 100
+            value_min: -100
+            icon: 'mdi:temperature-celsius'
+          - name: 'humidity'
+            description: 'Humidity in %'
+            type: 'numeratic'
+            unit: '%'
+            value_max: 100
+            value_min: 0
+            icon: 'mdi:water'
+          - name: 'pressure'
+            description: 'Pressure in mm'
+            type: 'numeratic'
+            unit: 'mm'
+            value_max: 2000
+            value_min: 0
+            icon: ''
