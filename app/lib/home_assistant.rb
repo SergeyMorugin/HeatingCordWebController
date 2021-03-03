@@ -33,6 +33,8 @@ class HomeAssistant
 
   end
 
+
+
   # base -> devise -> parameter
   #
   def publish(base, devise, payload)
@@ -52,6 +54,7 @@ class HomeAssistant
         end
         register_devise(mqtt_client, base, devise)
       end
+      mqtt_client.publish("#{base['id']}/bridge/state",'online',true)
     end
 
     mqtt_client.disconnect
@@ -60,7 +63,7 @@ class HomeAssistant
   def register_devise(mqtt_client, base, devise)
     request = devise_struct(devise)
 
-    mqtt_client.publish "#{base['id']}/bridge/devices", request.to_json
+    mqtt_client.publish "#{base['id']}/bridge/devices", request.to_json, true
   end
 
   def devise_struct(devise)
@@ -111,9 +114,11 @@ class HomeAssistant
                                devise['model'],
                                parameter['icon'])
 
-    mqtt_client.publish("homeassistant/sensor/#{devise['id']}/#{parameter['name']}/config", payload=request.to_json, retain=true)
+    mqtt_client.publish("homeassistant/sensor/#{devise['id']}/#{parameter['name']}/config", request.to_json, true)
     #mqtt_client.publish "test/test", request.to_json
   end
+
+
   # ha = HomeAssistant.new
   # ha.register_parameter(DEVISES_CONF['bases'][0], DEVISES_CONF['bases'][0]['devises'][0], DEVISES_CONF['bases'][0]['devises'][0]['parameters'][0])
 
