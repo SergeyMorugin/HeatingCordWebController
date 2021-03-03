@@ -27,7 +27,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4254a1ed-0fca-4f68-9ab0-52ee05becd2f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/schedule.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/schedule.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/deploy/production.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/deploy/production.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/devises.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/devises.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/tasks/cron_task.rake" beforeDir="false" afterPath="$PROJECT_DIR$/lib/tasks/cron_task.rake" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -380,7 +382,7 @@
       <workItem from="1613742812097" duration="52000" />
       <workItem from="1614711788199" duration="400000" />
       <workItem from="1614712193802" duration="22454000" />
-      <workItem from="1614766080488" duration="8829000" />
+      <workItem from="1614766080488" duration="12351000" />
     </task>
     <servers />
   </component>

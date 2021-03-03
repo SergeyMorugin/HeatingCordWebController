@@ -29,3 +29,28 @@ bases:
             value_max: 2000
             value_min: 0
             icon: ''
+      - id: 'rasp2bMercury20x'
+        vendor: 'Incotex'
+        model: 'Meter Mercury20x'
+        parameters:
+          - name: 'voltage'
+            description: 'Voltage in V'
+            type: 'numeratic'
+            unit: 'V'
+            value_max: 400
+            value_min: 0
+            icon: ''
+          - name: 'current'
+            description: 'Current in A'
+            type: 'numeratic'
+            unit: 'A'
+            value_max: 300
+            value_min: 0
+            icon: ''
+          - name: 'power'
+            description: 'Power in W'
+            type: 'numeratic'
+            unit: 'W'
+            value_max: 10000
+            value_min: 0
+            icon: ''

@@ -26,6 +26,9 @@ namespace :cron_task do
 
     if response[:data][:amperage] > 0.1
       MeterMomentMeasure.create!(response[:data])
+
+      m = MqttMercury.new(DEVISES_CONF['mqtt'], DEVISES_CONF['bases'][0], DEVISES_CONF['bases'][0]['devises'][1])
+      m.publish(response[:data])
     end
   end
 end
