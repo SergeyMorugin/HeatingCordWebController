@@ -32,7 +32,7 @@
 #  rake "bme280:get_weather"
 #end
 
-every 1.minutes do
-  rake "cron_task:every_minute"
-end
+#every 1.minutes do
+#  rake "cron_task:every_minute"
+#end
 
