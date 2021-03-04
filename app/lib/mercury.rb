@@ -14,14 +14,16 @@ class Mercury
 
   
   def test_connection
-    response = form_cmd_and_send GET_SERIAL_NUMBER_CMD.pack('C*')
+    response_length = 11
+    response = form_cmd_and_send GET_SERIAL_NUMBER_CMD.pack('C*'), response_length
     return response if response[:status] != 'OK'    
     address = bytes_to_int(response[:body][5..8]) 
     {status: 'OK', data: {address: address}}
   end
 
   def get_UIP
-    response = form_cmd_and_send GET_U_I_P_CMD.pack('C*')
+    response_length = 14
+    response = form_cmd_and_send GET_U_I_P_CMD.pack('C*'), response_length
     return response if response[:status] != 'OK'    
     #puts response_body.unpack('C*').map{|c| "%02X" % c}.to_s
     response_body = response[:body]
@@ -32,17 +34,19 @@ class Mercury
   end
 
   def enable_consumer
-    response = form_cmd_and_send ENABLE_CONSUMER_CMD.pack('C*')
+    response_length = 7
+    response = form_cmd_and_send ENABLE_CONSUMER_CMD.pack('C*'), response_length
     return response if response[:status] != 'OK'        
     
-    response = form_cmd_and_send EMULATION_BUTTON_PRESS_CMD.pack('C*')
+    response = form_cmd_and_send EMULATION_BUTTON_PRESS_CMD.pack('C*'), response_length
     return response if response[:status] != 'OK'
     
     {status: 'OK'}
   end
 
   def disable_consumer
-    response = form_cmd_and_send DISABLE_CONSUMER_CMD.pack('C*')
+    response_length = 7
+    response = form_cmd_and_send DISABLE_CONSUMER_CMD.pack('C*'), response_length
     return response if response[:status] != 'OK'    
     {status: 'OK'}
   end
@@ -51,10 +55,10 @@ class Mercury
 
 private
 
-  def form_cmd_and_send(buf)
+  def form_cmd_and_send(buf, data_length = 1000)
     cmd = int_to_bytes(@address) + buf
     cmd = cmd + short_to_bytes(crc16(cmd))
-    response = @io_dev.get_data(cmd)
+    response = @io_dev.get_data(cmd, data_length)
     return response if response[:status] != 'OK'
     response_body = response[:body]
     return response.merge({status: 'Error', error_message: 'Wrong CRC' }) if !check_crc(response_body)
