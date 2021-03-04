@@ -27,7 +27,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4254a1ed-0fca-4f68-9ab0-52ee05becd2f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/lib/home_assistant.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/lib/home_assistant.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/switcher_connect1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/switcher_connect1.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,6 +38,13 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="HeatingCordWebController" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Ruby Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -380,7 +388,7 @@
       <workItem from="1613742812097" duration="52000" />
       <workItem from="1614711788199" duration="400000" />
       <workItem from="1614712193802" duration="22454000" />
-      <workItem from="1614766080488" duration="16939000" />
+      <workItem from="1614766080488" duration="21925000" />
     </task>
     <servers />
   </component>
