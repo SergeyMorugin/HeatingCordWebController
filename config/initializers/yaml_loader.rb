@@ -1,1 +1,1 @@
-DEVISES_CONF = YAML.load(ERB.new(File.read("config/devises.yml")).result)
+DEVISES_CONF = YAML.load_file("config/devises.yml")

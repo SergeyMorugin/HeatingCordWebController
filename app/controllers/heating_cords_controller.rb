@@ -29,11 +29,16 @@ class HeatingCordsController < ApplicationController
   def update_mode
   	heating_cord = HeatingCord.first
     result = heating_cord.update_mode(params['mode'].to_i)
-
-    if params['mode'].to_i == HeatingCord::HEATIN_CORD_OFF_MODE &&
-        result['status'] = 'OK'
-      DevisesFactory.get_mercury.publish_0_values
+    if result['status'] = 'OK'
+      case params['mode'].to_i
+      when HeatingCord::HEATIN_CORD_OFF_MODE
+        DevisesFactory.get_mercury.publish_switch_off
+      when HeatingCord::HEATIN_CORD_MANUAL_ON_MODE
+        DevisesFactory.get_mercury.publish_switch_on
+      end
+        #DevisesFactory.get_mercury.publish_0_values
     end
+
   	respond_to do |format|      
       format.html { redirect_to '/heating_cords/index', notice: "HeatingCord mode updated. #{result}" }
       format.json { render :index, status: :ok, result: result}      

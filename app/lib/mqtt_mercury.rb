@@ -22,6 +22,13 @@ class MqttMercury
     publish({voltage: 0, current: 0, power: 0})
   end
 
+  def publish_switch_on
+    publish({switch: "ON"})
+  end
+
+  def publish_switch_off
+    publish({switch: "OFF"})
+  end
 
 end
 

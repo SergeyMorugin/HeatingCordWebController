@@ -1,6 +1,5 @@
 
 
-
 mqtt:
   address: '192.168.1.55'
 
@@ -13,7 +12,7 @@ bases:
         model: 'Senser BME280'
         parameters:
           - name: 'temperature'
-            parameter_type: 'senser'
+            parameter_type: 'sensor'
             description: 'Temperature in ºC'
             type: 'numeratic'
             unit: 'ºC'
@@ -21,7 +20,7 @@ bases:
             value_min: -100
             icon: 'mdi:temperature-celsius'
           - name: 'humidity'
-            parameter_type: 'senser'
+            parameter_type: 'sensor'
             description: 'Humidity in %'
             type: 'numeratic'
             unit: '%'
@@ -29,7 +28,7 @@ bases:
             value_min: 0
             icon: 'mdi:water'
           - name: 'pressure'
-            parameter_type: 'senser'
+            parameter_type: 'sensor'
             description: 'Pressure in mm'
             type: 'numeratic'
             unit: 'mm'
@@ -42,14 +41,14 @@ bases:
         parameters:
           - name: 'voltage'
             description: 'Voltage in V'
-            parameter_type: 'senser'
+            parameter_type: 'sensor'
             type: 'numeratic'
             unit: 'V'
             value_max: 400
             value_min: 0
             icon: ''
           - name: 'current'
-            parameter_type: 'senser'
+            parameter_type: 'sensor'
             description: 'Current in A'
             type: 'numeratic'
             unit: 'A'
@@ -57,7 +56,7 @@ bases:
             value_min: 0
             icon: ''
           - name: 'power'
-            parameter_type: 'senser'
+            parameter_type: 'sensor'
             description: 'Power in W'
             type: 'numeratic'
             unit: 'W'
@@ -65,85 +64,22 @@ bases:
             value_min: 0
             icon: ''
           - name: 'switcher'
-            parameter_type: 'switcher'
+            parameter_type: 'switch'
             type: 'switch'
-            endpoint: "switcher",
+            endpoint: "switcher"
             features:
-              -  "access":7,
-                 "description":"On/off state of the switch",
-                 "endpoint":"switcher",
-                 "name":"state",
-                 "property":"state_switcher",
-                 "type":"binary",
-                 "value_off":"OFF",
-                 "value_on":"ON",
-                 "value_toggle":"TOGGLE"
+              - "access": 7
+                "description": "On/off state of the switch"
+                "endpoint": "switcher"
+                "name": "state"
+                "property": "state_switcher"
+                "type": "binary"
+                "value_off": "OFF"
+                "value_on": "ON"
+                "value_toggle": "TOGGLE"
 
 
 
 
 
-
-bases1:
-  - id: <%= base_id = 'raspberrypi2b' %>
-    devises:
-      - id: <%= device_id = 'rasp2bBME280' %>
-        vendor: <%= vendor = 'Bosch' %>
-        model: <%= device_model = 'Senser BME280' %>
-        parameters:
-          -  main:
-               name: 'temperature'
-               description: 'Temperature in ºC'
-               type: 'numeratic'
-               unit: 'ºC'
-               value_max: 100
-               value_min: -100
-               icon: 'mdi:temperature-celsius'
-          config_1:
-            availability:
-              - topic: <%= "#{base_id}/bridge/state" %>
-            device:
-              identifiers:
-                - <%= "#{base_id}_#{device_id}" %>
-              manufacturer: <%= vendor %>
-              model: <%= device_model %>
-              name: <%= device_id %>
-            device_class: <%= senser_name = 'temperature' %>
-            json_attributes_topic: <%= "#{base_id}/#{device_id}" %>
-            name: <%= "#{device_id} #{senser_name}" %>
-            state_topic: <%= "#{base_id}/#{device_id}" %>
-            unique_id: <%= "#{base_id}_#{device_id}_#{senser_name}" %>
-            value_template: "{{ value_json.<%= senser_name %> }}"
-            unit_of_measurement: 'ºC'
-          device_topic:
-            access: 1
-            description: "Remaining battery in %"
-            name: "battery"
-            property: "battery"
-            type": "numeric"
-            unit": "%"
-            value_max: 100
-            value_min: 0
-
-          - name: 'temperature'
-            description: 'Temperature in ºC'
-            type: 'numeratic'
-            unit: 'ºC'
-            value_max: 100
-            value_min: -100
-            icon: 'mdi:temperature-celsius'
-          - name: 'humidity'
-            description: 'Humidity in %'
-            type: 'numeratic'
-            unit: '%'
-            value_max: 100
-            value_min: 0
-            icon: 'mdi:water'
-          - name: 'pressure'
-            description: 'Pressure in mm'
-            type: 'numeratic'
-            unit: 'mm'
-            value_max: 2000
-            value_min: 0
-            icon: ''
 
