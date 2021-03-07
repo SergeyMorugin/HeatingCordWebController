@@ -10,9 +10,17 @@ class MqttBme280
   end
 
   def publish(payload)
+
     mqtt_client = MQTT::Client.connect(@mqtt_server['address'])
-    mqtt_client.publish "#{@base['id']}/#{@devise['id']}", payload.to_json
+    mqtt_client.publish "#{@base['id']}/#{@devise['id']}", round_values(payload).to_json
     mqtt_client.disconnect
+  end
+
+  def round_values(values)
+    values['temperature'] = values['temperature'].round(1)
+    values['humidity'] = values['humidity'].round
+    values['pressure'] = values['pressure'].round
+    values
   end
 
 end
